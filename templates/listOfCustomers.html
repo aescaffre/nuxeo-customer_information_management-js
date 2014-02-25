@@ -1,0 +1,28 @@
+<html>
+<script id="customers-listing" type="text/html">
+<table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Client Name</th>
+          <th>Sales</th>
+          <th>Customer Business</th>
+        </tr>
+      </thead>
+      <tbody>
+{{#entries}}
+        <tr>
+          <td>#</td>
+          <td>{{title}}</td>
+          {{#properties}}
+          <td>{{nsi:sales_rep}}</td>
+          <td>{{nsi:customer_business}}</td>
+          <td><div class="btn-group">
+  <button onclick="browseCustomer('{{uid}}')" type="button" class="btn btn-default">View Detail</button></div></td>
+             {{/properties}}
+        </tr>
+ {{/entries}}
+      </tbody>
+    </table>
+    </script>
+ 

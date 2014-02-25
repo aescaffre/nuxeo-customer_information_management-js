@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="lib/mustache.js"></script>
+<script src="js/customer.js"></script>
+<script src="lib/jquery.mustache.js"></script>
+<script src="lib/nuxeo.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+		
+<script type="text/javascript">
+var connectInfo={
+	baseURL:"YourNuxeoURL",
+	username:"",
+	password:""
+}	
+var client = new nuxeo.Client(connectInfo);
+client.schemas(["dublincore", "nuxeo_sales_info","nuxeo_customer_identification"]);
+client.header("x-requested-with", "love");
+browseListOfCustomers();
+</script>
+</head>
+		<body>
+    </body>
+</html>

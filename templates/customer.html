@@ -1,0 +1,92 @@
+<script id="customers-view" type="text/html">
+<div>
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Customer name</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{title}}</p>
+    </div>
+  </div>
+   {{#properties}}
+     <div class="form-group">
+    <label class="col-sm-2 control-label">Industry</label>
+    <div id ="formField-nsi_industry" class="col-sm-10" ondblclick="switchEdit('nsi_industry', '{{nsi:industry}}')">
+      <p class="form-control-static" >{{nsi:industry}}</p>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Last modification date</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{dc:modified}}</p>
+    </div>
+  </div>
+
+     <div class="form-group">
+    <label class="col-sm-2 control-label">Customer Business</label>
+    <div id ="formField-nsi_customer_business" class="col-sm-10" ondblclick="switchEdit('nsi_customer_business', '{{nsi:customer_business}}')">
+      <p class="form-control-static">{{nsi:customer_business}}</p>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Sales rep</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{nsi:sales_rep}}</p>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Customer since</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{nsi:customer_since}}</p>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Deal history</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{nsi:sales_history}}</p>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Success factors</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{nsi:success_factors}}</p>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Competitors</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{nsi:competitors}} </p>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Comment</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{nsi:competitors_comment}}</p>
+    </div>
+  </div>
+  {{/properties}}
+
+</form>
+</div>
+<div>
+<button onclick="browseListOfCustomers()" type="button" class="btn btn-default">Back to the list of customers</button>
+</div>
+</script>
+
+<script id="displayReadValue">
+<p class="form-control-static" >{{.}}</p>
+</script>
+
+<script id="editField-nsi_industry">
+<input type="text" class="form-control" placeholder="Text input" value ="{{.}}" onblur="switchRead(this,'nsi_industry','nsi:industry')"></input>
+</script>
+
+<script id="editField-nsi_customer_business">
+<textarea rows="4" class="form-control" placeholder="Text input" value ="{{.}}" onblur="switchRead(this,'nsi_customer_business','nsi:customer_business')"></textarea>
+</script>

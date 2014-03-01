@@ -1,11 +1,52 @@
 
 var currentCustomer;
 
+function getVocabularyData(directoryName, callback){
+ client.operation("Directory.Entries").params({"directoryName":directoryName}).execute(function(error,data){ callback(data)});
+
+}
+
+
+
+function drawDropZone(){
+
+var myDropzone = new Dropzone("#droparea", {"url":"#","createImageThumbnails":true,accept:function (file, done) {
+    if (file.name != "justinbieber.jpg") {
+      importOp = client.operation('Blob.Attach').params({
+        document : currentDocId,
+        save : 'true',
+        xpath : 'npi:screenshot1'
+      })
+      importOp.uploader().uploadFile(file,null);
+      importOp.uploader().execute(function(error, data){});
+    }
+    else { done(); }
+  }});
+
+  
+}
 
 //helper functions
-function switchEdit(field, value){
-var formField = $.Mustache.render('editField-'+field, value);
-            $('#formField-'+field).html(formField);
+function switchEdit(formFieldId,value, widgetType , options){
+
+  var templateData ={};
+
+
+  templateData["fieldValue"]= value;
+
+  if (widgetType=="vocabulary"){
+   var vocabularyEntries={};
+   getVocabularyData(options['directoryName'],function (data){
+ templateData['vocabularyEntries']= data;
+ var formField = $.Mustache.render('editField-'+formFieldId, templateData);
+  $('#formField-'+formFieldId).html(formField);
+   });
+
+  }
+   else {
+    var formField = $.Mustache.render('editField-'+formFieldId, templateData);
+  $('#formField-'+formFieldId).html(formField);
+   }
 
 }
 
@@ -17,7 +58,7 @@ function switchRead(currentField,field, propertyId){
 }
 
 //main functions
-
+var currentDocId;
 function browseCustomer(customerId){
   
 	 client.document(customerId)
@@ -25,15 +66,17 @@ function browseCustomer(customerId){
         if (error) {
           throw error;
         }
-
+        currentDocId=data.uid;
         doc = data;
-        currentCustomer = data.uid
-        console.log(data);
+        currentCustomer = data.uid;
+       
         $.Mustache.load('./templates/customer.html').done(function(){
           var content = $.Mustache.render('customers-view', doc);
             $('body').html(content);
+             drawDropZone();
           	})
       });
+     
   }
 
   function browseListOfCustomers(){
@@ -44,7 +87,7 @@ function browseCustomer(customerId){
          
         })
         .execute(function(error, data) {
-        	console.log(data);  
+        
           if (error) {
             throw error;
           }

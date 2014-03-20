@@ -2,8 +2,8 @@
 <div>
 <form class="form-horizontal" role="form">
   <div class="form-group">
-    <label id ="formField-dc_title" class="col-sm-2 control-label" ondblclick="switchToEdit('dc:title','{{dc:title}}')">Customer name</label>
-    <div class="col-sm-10">
+    <label  class="col-sm-2 control-label">Customer name</label>
+    <div class="col-sm-10" id ="formField-dc_title"  ondblclick="switchToEdit('dc:title','{{dc:title}}')">
       <p class="form-control-static">{{title}}</p>
     </div>
   </div>
@@ -24,7 +24,7 @@
 
      <div class="form-group">
     <label class="col-sm-2 control-label">Customer Business</label>
-    <div id ="formField-nsi_customer_business" class="col-sm-10" ondblclick="switchToEdit('nsi:customer_business','{{nsi:customer_business}}')">
+    <div id ="formField-nsi_customer_business" class="col-sm-10" ondblclick="alert('hein');switchToEdit('nsi:customer_business','{{nsi:customer_business}}')">
       <p class="form-control-static">{{nsi:customer_business}}</p>
     </div>
   </div>
@@ -37,14 +37,14 @@
   </div>
   <div class="form-group">
     <label class="col-sm-2 control-label">Deal history</label>
-    <div class="col-sm-10" id="formField-nsi-sales_history" ondblckick="switchToEdit('nsi:sales_history','{{nsi:sales_history}')">
+    <div class="col-sm-10" id="formField-nsi-sales_history" ondblckick="switchToEdit('nsi:sales_history','{{nsi:sales_history}}')">
       <p class="form-control-static">{{nsi:sales_history}}</p>
     </div>
   </div>
 
     <div class="form-group">
     <label class="col-sm-2 control-label">Customer since</label>
-    <div class="col-sm-10" id="formfField-nsi_customer_since" ondblckick="switchToEdit('nsi:customer_since','{{nsi:customer_since}')">
+    <div class="col-sm-10" id="formfField-nsi_customer_since" ondblckick="switchToEdit('nsi:customer_since','{{nsi:customer_since}}')">
       <p class="form-control-static">{{nsi:customer_since}}</p>
     </div>
   </div>

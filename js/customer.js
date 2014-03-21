@@ -47,10 +47,6 @@ init: function() {
 
 
 });
-
-
-  
-  
 }
 
 function switchToEdit(propertyId,value){
@@ -152,7 +148,7 @@ function browseCustomer(customerId){
        
         $.Mustache.load('./templates/customer.html').done(function(){
           var content = $.Mustache.render('customers-view', doc);
-            $('body').html(content);
+            $('#mainArea').html(content);
             var test = document.getElementById("image");
         
 
@@ -197,7 +193,7 @@ function browseCustomer(customerId){
           	var documents=data;
           	$.Mustache.load('./templates/listOfCustomers.html').done(function(){
               var content = $.Mustache.render('customers-listing', documents);
-          		 $('body').html(content);
+          		 $('#mainArea').html(content);
           	})
           }
 }

@@ -1,17 +1,35 @@
 <script id="customers-view" type="text/html">
-<div>
-<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label  class="col-sm-2 control-label">Customer name</label>
-    <div class="col-sm-10" id ="formField-dc_title"  ondblclick="switchToEdit('dc:title','{{dc:title}}')">
-      <p class="form-control-static">{{title}}</p>
+
+
+<div class="col-md-3">
+
+   <div style="width:100px;background-color:WHITE;margin-top:25px;margin-left:15px" >
+   <div class="dropzone dropzone-previews"
+      id="droparea-screenshot1"></div>
+      </div>
+  <div style="width:100px;background-color:WHITE; margin-top:25px;margin-left:15px" >
+   <div class="dropzone dropzone-previews"
+      id="droparea-screenshot2"></div>
     </div>
+</div>
+
+
+<div class="panel panel-default col-md-5">
+  <div class="panel-heading"  id ="formField-dc_title"  ondblclick="switchToEdit('dc:title','{{title}}')" > 
+    <h3 class="panel-title">  {{title}}</h3>
+  
   </div>
+  <div class="panel-body">
+  
+
+
+<form class="form-horizontal" role="form">
+ 
    {{#properties}}
      <div class="form-group">
     <label class="col-sm-2 control-label">Industry</label>
     <div id ="formField-nsi_industry" class="col-sm-10" ondblclick="switchToEdit('nsi:industry','{{nsi:industry}}')">
-      <p class="form-control-static" >{{nsi:industry}}</p>
+      <p class="form-control-static"><span class="badge">{{nsi:industry}}</span></p>
     </div>
   </div>
 
@@ -24,7 +42,7 @@
 
      <div class="form-group">
     <label class="col-sm-2 control-label">Customer Business</label>
-    <div id ="formField-nsi_customer_business" class="col-sm-10" ondblclick="alert('hein');switchToEdit('nsi:customer_business','{{nsi:customer_business}}')">
+    <div id ="formField-nsi_customer_business" class="col-sm-10" ondblclick="switchToEdit('nsi:customer_business','{{nsi:customer_business}}')">
       <p class="form-control-static">{{nsi:customer_business}}</p>
     </div>
   </div>
@@ -70,25 +88,14 @@
   </div>
    {{/properties}}
    </form>
- 
+
+  </div>
 </div>
+<div class="col-md-3">  
+      </div>
 
   <img id="image" src=""/>
-  <div style="width:300px">
-   <div style="width:100px;background-color:yellow;float:left" >
-   <div class="dropzone dropzone-previews"
-      id="droparea-screenshot1"></div>
-      </div>
-
-      <div style="width:100px;background-color:yellow;float:right" >
-   <div class="dropzone dropzone-previews"
-      id="droparea-screenshot2"></div>
-      </div>
-      </div>
-
-<div>
-<button onclick="browseListOfCustomers()" type="button" class="btn btn-default">Back to the list of customers</button>
-</div>
+ </div>
 </script>
 
 <script id="displayReadValue">
@@ -103,7 +110,7 @@
 </script>
 
 <script id="editField-dc_title">
-  <input type="text" class="form-control" placeholder="Text input" value ="{{dc:title}}" onblur="switchRead(this,'dc_title','dc:title')"></input>
+  <input type="text" class="form-control" placeholder="Text input" value ="{{fieldValue}}" onblur="switchRead(this,'dc_title','dc:title')"></input>
 </script>
 
 <script id="editField-nsi_industry">

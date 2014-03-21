@@ -21,7 +21,7 @@
 		
 <script type="text/javascript">
 var connectInfo={
-	baseURL:"http://localhost:8080/nuxeo"
+	baseURL:"http://localhost:8080/nuxeo", username:"Administrator",password:"Administrator"
 
 }	
 var client = new nuxeo.Client(connectInfo);
@@ -29,11 +29,16 @@ client.schemas(["dublincore", "nuxeo_sales_info","nuxeo_customer_identification"
 browseListOfCustomers();	
 </script>
   <div id="dropScreenshots">
-  
   </div>
-
 </head>
+
 		<body>
+		<div class = "row" id="tutu">
+		<div class="col-md-5" style="background: url(./images/logo340x60.png) no-repeat;width: 170px;height: 30px;background-size: cover;margin: 19px 50px 0px 30px;" onclick="browseListOfCustomers()">&nbsp;</div>
+		<div class="col-md-7"><h2 > <span >Customers Information Management </span></h2></div>
+		<div class="col-md-3">&nbsp;</div>
+	</div>
+	<div class="row" id ="mainArea"/>
 	
     </body>
 </html>

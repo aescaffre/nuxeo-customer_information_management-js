@@ -14,5 +14,5 @@ To start adapting this sample to your own use case you only need:
 - a Nuxeo instance with [CORS config](http://doc.nuxeo.com/x/vIvZ) 
 - a Studio project for you document types (If you really are into customer information management, just ask me to share the Studio jar, I'm doing lazy sharing on that one ;-)
 
-The following blogpost describes what has been done, and provide a link to a [video](http://www.nuxeo.com/blog/development/2014/03/developping-content-application-mustachejs-bootstrap-nuxeojs/) 
+The following [blog post](http://www.nuxeo.com/blog/development/2014/03/developping-content-application-mustachejs-bootstrap-nuxeojs/) describes what has been done, and provide a link to a video.
 
